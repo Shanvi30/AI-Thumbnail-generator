@@ -25,7 +25,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "http://localhost:3000"
+      "http://localhost:3000",
+      "https://ai-thumbnail-generator-one.vercel.app",
     ],
     credentials: true,
   }),
