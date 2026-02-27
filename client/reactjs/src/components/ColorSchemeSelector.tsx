@@ -1,4 +1,4 @@
-import { colorSchemes, type ColorScheme } from "../assets/assets";
+import { colorSchemes } from "../assets/assets";
 
 const ColorSchemeSelector = ({
   value,

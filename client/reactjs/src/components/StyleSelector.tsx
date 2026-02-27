@@ -7,7 +7,6 @@ import {
   SquareIcon,
 } from "lucide-react";
 import { thumbnailStyles, type ThumbnailStyle } from "../assets/assets";
-import { div } from "motion/react-client";
 
 const StyleSelector = ({
   value,

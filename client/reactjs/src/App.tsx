@@ -9,7 +9,7 @@ import MyGeneration from "./pages/MyGeneration";
 import Login from "./components/Login";
 import YtPreview from "./pages/YtPreview";
 import { useEffect } from "react";
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 
 export default function App() {
   const { pathname } = useLocation();
@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <>
-    <Toaster/>
+      <Toaster />
       <LenisScroll />
       <Navbar />
       <Routes>
