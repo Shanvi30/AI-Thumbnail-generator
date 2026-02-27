@@ -1,7 +1,6 @@
 import "dotenv/config";
 import express, { Request, Response } from "express";
 import cors from "cors";
-import "dotenv/config";
 import connectDB from "./configs/db.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -19,16 +18,18 @@ declare module "express-session" {
 await connectDB();
 
 const app = express();
+app.set("trust proxy", 1);
 
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000"
+    ],
     credentials: true,
   }),
 );
-
-app.set('trust proxy', 1)
 
 app.use(
   session({
@@ -38,9 +39,9 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7,
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      path: '/'
+      secure: true,
+      sameSite: "none",
+      path: "/",
     },
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI as string,
