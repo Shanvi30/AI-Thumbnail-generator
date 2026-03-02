@@ -19,12 +19,12 @@ interface AuthContextProps {
 
 const AuthContext = createContext<AuthContextProps>({
   isLoggedIn: false,
-  setIsLoggedIn: () => { },
+  setIsLoggedIn: () => {},
   user: null,
-  setUser: () => { },
-  login: async () => { },
-  signUp: async () => { },
-  logout: async () => { },
+  setUser: () => {},
+  login: async () => {},
+  signUp: async () => {},
+  logout: async () => {},
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -70,8 +70,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setIsLoggedIn(true);
       }
       toast.success(data.message);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      const message = error?.response?.data?.message || "Invalid credentials";
+      toast.error(message);
     }
   };
   const logout = async () => {
